@@ -3,7 +3,7 @@ import {
   Routes,
   Route,
   Navigate,
-  useLocation,
+//   useLocation,
 } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -29,18 +29,18 @@ import ProviderMessages from "./pages/ProviderMessages";
 // import CustomerChatbot from "./pages/CustomerChatbot";
 // import ProviderChatbot from "./pages/ProviderChatbot";
 
-function ChatbotController() {
-  const { pathname } = useLocation();
-  const isCustomer = pathname.startsWith("/customer");
-  const isProvider =
-    pathname.startsWith("/provider") || pathname.includes("bids");
-  return (
-    <>
-      {/* {isCustomer && <CustomerChatbot />}
-      {isProvider && <ProviderChatbot />} */}
-    </>
-  );
-}
+// function ChatbotController() {
+//   const { pathname } = useLocation();
+//   const isCustomer = pathname.startsWith("/customer");
+//   const isProvider =
+//     pathname.startsWith("/provider") || pathname.includes("bids");
+//   return (
+//     <>
+//       {isCustomer && <CustomerChatbot />}
+//       {isProvider && <ProviderChatbot />}
+//     </>
+//   );
+// }
 
 export default function App() {
   return (

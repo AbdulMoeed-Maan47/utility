@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import {
   Edit,
   Save,
   Loader2,
   Eye,
   EyeOff,
-  AlertTriangle,
+  // AlertTriangle,
   X,
 } from "lucide-react";
 import api from "../services/api";
@@ -54,7 +54,7 @@ export function CustomerProfilePage() {
   const [loading, setLoading] = useState(true);
   const [showEdit, setShowEdit] = useState(false);
   const [showPwd, setShowPwd] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const fetchProfile = async () => {
     setLoading(true);
