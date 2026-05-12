@@ -3,6 +3,31 @@ import { useNavigate, Link } from "react-router-dom";
 import { Eye, EyeOff, Wrench, AlertCircle } from "lucide-react";
 import api from "../services/api";
 
+const Field = ({
+  label,
+  type = "text",
+  value,
+  onChange,
+  placeholder,
+  children,
+}) => (
+  <div>
+    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+      {label}
+    </label>
+    {children ?? (
+      <input
+        type={type}
+        required
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-sky-500 focus:outline-none text-sm transition-colors"
+      />
+    )}
+  </div>
+);
+
 export default function SignUpPage() {
   const [role, setRole] = useState("customer");
   const [fullName, setFullName] = useState("");
@@ -41,31 +66,6 @@ export default function SignUpPage() {
       setLoading(false);
     }
   };
-
-  const Field = ({
-    label,
-    type = "text",
-    value,
-    onChange,
-    placeholder,
-    children,
-  }) => (
-    <div>
-      <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-        {label}
-      </label>
-      {children ?? (
-        <input
-          type={type}
-          required
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-sky-500 focus:outline-none text-sm transition-colors"
-        />
-      )}
-    </div>
-  );
 
   return (
     <div className="min-h-screen flex font-sans bg-white">

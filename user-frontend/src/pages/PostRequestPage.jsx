@@ -11,6 +11,28 @@ const CATEGORIES = [
   "general repair",
 ];
 
+const Field = ({
+  label,
+  name,
+  type = "text",
+  placeholder,
+  required = true,
+}) => (
+  <div>
+    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+      {label}
+    </label>
+    <input
+      type={type}
+      value={form[name]}
+      onChange={(e) => set(name, e.target.value)}
+      placeholder={placeholder}
+      required={required}
+      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-sky-500 focus:outline-none text-sm transition-colors"
+    />
+  </div>
+);
+
 export function PostRequestPage() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -75,28 +97,6 @@ export function PostRequestPage() {
       setLoading(false);
     }
   };
-
-  const Field = ({
-    label,
-    name,
-    type = "text",
-    placeholder,
-    required = true,
-  }) => (
-    <div>
-      <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-        {label}
-      </label>
-      <input
-        type={type}
-        value={form[name]}
-        onChange={(e) => set(name, e.target.value)}
-        placeholder={placeholder}
-        required={required}
-        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-sky-500 focus:outline-none text-sm transition-colors"
-      />
-    </div>
-  );
 
   return (
     <div className="max-w-2xl">
