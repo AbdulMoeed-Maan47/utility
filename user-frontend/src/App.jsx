@@ -7,27 +7,27 @@ import {
 } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-import HomePage from "./HomePage";
+// import HomePage from "./HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 
-import CustomerLayout from "./pages/customerlayout";
-import CustomerDashboard from "./pages/customerdashboard";
-import { CustomerProfilePage } from "./pages/customer-profile";
-import { ActiveRequestsPage } from "./pages/myrequest";
-import { PostRequestPage } from "./pages/postrequest";
-import ServiceHistoryPage from "./pages/servicehistory";
-import { CustomerAvailableOffers } from "./pages/customeravailableoffers";
-import CustomerMessages from "./pages/customermessages";
+import CustomerLayout from "./components/CustomerLayout";
+import CustomerDashboard from "./pages/CustomerDashboard";
+import { CustomerProfilePage } from "./pages/CustomerProfilePage";
+import { ActiveRequestsPage } from "./pages/ActiveRequestsPage";
+import { PostRequestPage } from "./pages/PostRequestPage";
+import ServiceHistoryPage from "./pages/ServiceHistoryPage";
+import { CustomerAvailableOffers } from "./pages/CustomerAvailableOffers";
+import CustomerMessages from "./pages/CustomerMessages";
 
-import ProviderDashboard from "./pages/provider_dashboard";
-import ProviderProfilePage from "./pages/provider_profile";
-import { BidsHistoryPage } from "./pages/bids_history";
-import { MyBidsPage } from "./pages/my_bids";
-import ProviderMessages from "./pages/provider_messages";
+import ProviderDashboard from "./pages/ProviderDashboard";
+import ProviderProfilePage from "./pages/ProviderProfilePage";
+import { BidsHistoryPage } from "./pages/BidsHistoryPage";
+import { MyBidsPage } from "./pages/MyBidsPage";
+import ProviderMessages from "./pages/ProviderMessages";
 
-import CustomerChatbot from "./pages/customerchatbot";
-import ProviderChatbot from "./pages/providerchatbot";
+// import CustomerChatbot from "./pages/CustomerChatbot";
+// import ProviderChatbot from "./pages/ProviderChatbot";
 
 function ChatbotController() {
   const { pathname } = useLocation();
@@ -36,8 +36,8 @@ function ChatbotController() {
     pathname.startsWith("/provider") || pathname.includes("bids");
   return (
     <>
-      {isCustomer && <CustomerChatbot />}
-      {isProvider && <ProviderChatbot />}
+      {/* {isCustomer && <CustomerChatbot />}
+      {isProvider && <ProviderChatbot />} */}
     </>
   );
 }
@@ -47,10 +47,9 @@ export default function App() {
     <Router>
       <Routes>
         {/* Public */}
-        <Route path="/" element={<HomePage />} />
+        {/* <Route path="/" element={<HomePage />} /> */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-
         {/* Customer — nested under shared CustomerLayout */}
         <Route
           path="/customer-dashboard"
@@ -67,7 +66,6 @@ export default function App() {
           <Route path="history" element={<ServiceHistoryPage />} />
           <Route path="messages" element={<CustomerMessages />} />
         </Route>
-
         {/* Customer — standalone protected page */}
         <Route
           path="/customer-available-offers"
@@ -77,7 +75,6 @@ export default function App() {
             </ProtectedRoute>
           }
         />
-
         {/* Provider — each uses ProviderLayout internally */}
         <Route
           path="/provider-dashboard"
@@ -119,10 +116,9 @@ export default function App() {
             </ProtectedRoute>
           }
         />
-
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />{" "}
       </Routes>
-      <ChatbotController />
+      {/* <ChatbotController /> */}
     </Router>
   );
 }
